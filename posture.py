@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     def create_random_edges():
         create_kitchens(5)
-        create_seats(100)
+        create_seats((2 * 4) + (4 * 1) + (5 * 1) + (3 * 1))
 
 
     def test_random_edges():
@@ -72,11 +72,11 @@ if __name__ == "__main__":
         print("There are {} edges".format(len(edges)))
         old_time = time.time()
 
-        for i in range(5 * 1):
+        for i in range(20 * round(60 / 5)):
 
-            for edge in edges:
-                if "plate@" in edge[destination_edge_idx]:
-                    result = dijkstra(edges, "Stand@None&plate@hands", edge[destination_edge_idx])
+            for node in nodes_seen:
+                if "plate@" in node:
+                    result = dijkstra(edges, "Stand@None&plate@hands", node)
                 #print(edge[destination_edge_idx])
                     print(result)
         new_time = time.time()
